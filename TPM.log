@@ -1,0 +1,38 @@
+[2025-04-11 16:53:19] Fetching JSON from API...
+[2025-04-11 16:53:23] CSV backup saved: /Users/rubes/TPM_DB_Config/Data/TPMData-041125_165319.csv
+[2025-04-11 16:54:12] Fetching JSON from API...
+[2025-04-11 16:54:15] CSV backup saved: /Users/rubes/TPM_DB_Config/Data/TPMData-041125_165412.csv
+[2025-04-11 16:54:15] Loaded 95629 existing barcodes from tpm_items
+[2025-04-11 16:54:18] Moved processed file to: /Users/rubes/TPM_DB_Config/Data/Processed/TPMData-041125_165412.csv
+[2025-04-11 16:54:18] 
+IMPORT SUMMARY
+----------------------------
+[2025-04-11 16:54:18] Total rows from API:        5699
+[2025-04-11 16:54:18] Inserted new rows:          5699
+[2025-04-11 16:54:18] Skipped duplicates:         0
+[2025-04-11 16:54:18] File moved to:              Processed/
+[2025-04-11 16:54:18] Duration:                   0:00:02.474922
+[2025-04-11 16:54:38] Fetching JSON from API...
+[2025-04-11 16:54:41] CSV backup saved: /Users/rubes/TPM_DB_Config/Data/TPMData-041125_165438.csv
+[2025-04-11 16:54:41] Loaded 101328 existing barcodes from tpm_items
+[2025-04-11 16:54:42] Moved processed file to: /Users/rubes/TPM_DB_Config/Data/Processed/TPMData-041125_165438.csv
+[2025-04-11 16:54:42] 
+IMPORT SUMMARY
+----------------------------
+[2025-04-11 16:54:42] Total rows from API:        5495
+[2025-04-11 16:54:42] Inserted new rows:          43
+[2025-04-11 16:54:42] Skipped duplicates:         5452
+[2025-04-11 16:54:42] File moved to:              Processed/
+[2025-04-11 16:54:42] Duration:                   0:00:01.034256
+[2025-04-11 16:54:59] Fetching JSON from API...
+[2025-04-11 16:55:01] CSV backup skipped due to -nocsv flag.
+[2025-04-11 16:55:02] Loaded 101371 existing barcodes from tpm_items
+[2025-04-11 16:55:02] File move skipped due to -nocsv flag.
+[2025-04-11 16:55:02] 
+IMPORT SUMMARY
+----------------------------
+[2025-04-11 16:55:02] Total rows from API:        5489
+[2025-04-11 16:55:02] Inserted new rows:          0
+[2025-04-11 16:55:02] Skipped duplicates:         5489
+[2025-04-11 16:55:02] File move skipped due to -nocsv flag.
+[2025-04-11 16:55:02] Duration:                   0:00:00.203621
