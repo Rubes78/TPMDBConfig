@@ -6,7 +6,7 @@ def load_config_from_db():
     cursor = connection.cursor()
     cursor.execute("SELECT setting_key, setting_value FROM TPM_Config")
     rows = cursor.fetchall()
-    config = {row[0]: row[1] for row in rows}
+    config = {row[0]: row[1]for row in rows}
     cursor.close()
     connection.close()
     return config
@@ -116,7 +116,7 @@ def cast_value(value, expected_type):
 def load_existing_barcodes(connection):
     cursor = connection.cursor()
     cursor.execute("SELECT barcode FROM tpm_items")
-    existing = {row[0] for row in cursor.fetchall()}
+    existing = {row[0]for row in cursor.fetchall()}
     log(f"Loaded {len(existing)} existing barcodes from tpm_items", "INFO")
     return existing
 
@@ -278,15 +278,54 @@ if __name__ == "__main__":
         "companyID": config["api_companyID"]
     }
 
+    
+    
+    
+    
     if args.daterange:
-        start_str, end_str = args.daterange.split("-")
-        start = datetime.strptime(start_str, "%m/%d/%y")
-        end = datetime.strptime(end_str, "%m/%d/%y")
-        params["Updatestartdt"] = start.strftime("%Y-%m-%d 00:00:00")
-        params["Updateenddt"] = end.strftime("%Y-%m-%d 23:59:59")
-        timestamp_now = f"{start.strftime('%Y%m%d')}_to_{end.strftime('%Y%m%d')}"
+        try:
+            import re
+            daterange_input = args.daterange.strip()
+
+            # Auto-correct if it looks like two full dates joined by a single dash
+            if re.fullmatch(r'\d{1,2}-\d{1,2}-\d{2,4}-\d{1,2}-\d{1,2}-\d{2,4}', daterange_input):
+                # Split into two 3-part dates using the position
+                parts = daterange_input.split("-")
+                start_str = "/".join(parts[:3])
+                end_str = "/".join(parts[3:])
+            elif ' to ' in daterange_input:
+                start_str, end_str = daterange_input.split(' to ')
+            elif ' -- ' in daterange_input:
+                start_str, end_str = daterange_input.split(' -- ')
+            elif '/' in daterange_input and '-' in daterange_input:
+                start_str, end_str = daterange_input.split('-')
+            else:
+                raise ValueError("Ambiguous date format. Use slashes or a separator like ' to ' or ' -- '")
+
+            start_str = start_str.strip().replace("-", "/")
+            end_str = end_str.strip().replace("-", "/")
+
+            for fmt in ("%m/%d/%Y", "%m/%d/%y", "%-m/%-d/%Y", "%-m/%-d/%y"):
+                try:
+                    start = datetime.strptime(start_str, fmt)
+                    end = datetime.strptime(end_str, fmt)
+                    break
+                except ValueError:
+                    continue
+            else:
+                raise ValueError
+            params["Updatestartdt"] = start.strftime("%Y-%m-%d 00:00:00")
+            params["Updateenddt"] = end.strftime("%Y-%m-%d 23:59:59")
+            timestamp_now = f"{start.strftime('%Y%m%d')}_to_{end.strftime('%Y%m%d')}"
+        except ValueError:
+            print("Invalid date format. Use MM/DD/YY or MM/DD/YYYY with a separator like ' to ', ' -- ', or a valid two-date range.")
+            exit(1)
     else:
         timestamp_now = datetime.now().strftime("%m%d%y_%H%M%S")
+
+
+
+
 
     if not args.nocsv:
         filename = os.path.join(data_dir, f"TPMData-{timestamp_now}.csv")
