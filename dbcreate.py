@@ -20,19 +20,33 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     if args.sql:
-        print(" SQL setup mode...")
+        print("SQL setup mode...")
 
         while True:
             server = input("Server name: ").strip()
             if is_sql_server_reachable(server):
-                log(f" Server '{server}' is reachable on port 1433.")
+                log(f"Server '{server}' is reachable on port 1433.")
                 break
             else:
-                log(f" Server '{server}' is not reachable on port 1433. Try again.")
+                log(f"Server '{server}' is not reachable on port 1433. Try again.")
 
-        dbname = input("Database name: ").strip()
-        user = input("Username: ").strip()
-        password = getpass.getpass("Password: ")
+        while True:
+            dbname = input("Database name: ").strip()
+            if dbname:
+                break
+            log("Database name cannot be empty.")
+
+        while True:
+            user = input("Username: ").strip()
+            if user:
+                break
+            log("Username cannot be empty.")
+
+        while True:
+            password = getpass.getpass("Password: ")
+            if password:
+                break
+            log("Password cannot be empty.")
 
         try:
             conn = pyodbc.connect(
@@ -42,7 +56,7 @@ if __name__ == "__main__":
             conn.autocommit = True
             cursor = conn.cursor()
             cursor.execute(f"IF DB_ID('{dbname}') IS NULL CREATE DATABASE [{dbname}]")
-            log(f" Database '{dbname}' verified or created.")
+            log(f"Database '{dbname}' verified or created.")
             conn.close()
 
             conn = pyodbc.connect(
@@ -102,10 +116,10 @@ if __name__ == "__main__":
             )
             """)
             conn.commit()
-            log(" Tables verified or created.")
+            log("Tables verified or created.")
             conn.close()
             exit(0)
 
         except pyodbc.Error as e:
-            log(f" SQL Setup failed: {e}")
+            log(f"SQL Setup failed: {e}")
             exit(1)
