@@ -72,4 +72,18 @@ The form includes:
 - A dropdown to select `log_level`
 - Safe, direct inserts/updates to your SQL Server `TPM_Config` table
 
-No need to run a visible server or manage local files. This is the recommended configuration method.
+No need to run a visible server or manage local files. This is the recommended configuration method.## Web Configuration UI (v1.4)
+
+This tool allows safe population of the `TPM_Config` table via a web form.
+
+### Features
+- Fields: `API_URL`, `API_TOKEN`, `COMP_ID`, `LOG_LEVEL`, `BASE_DIR`
+- Dropdown menu for `LOG_LEVEL`
+- Connects using `[SQL]` section from `configuration.ini`
+- Logs all activity to `AppLog.log`
+- Background launcher: `python3 config_web.py` runs silently
+- **Confirmation dialog** prevents accidental resubmits
+
+Visit: [http://127.0.0.1:5050](http://127.0.0.1:5050)
+
+---

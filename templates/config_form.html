@@ -17,7 +17,7 @@
   {% if message %}
     <div class="{{ 'success' if success else 'error' }}">{{ message }}</div>
   {% endif %}
-  <form method="POST">
+  <form method="POST" onsubmit="return confirm('Are you sure you want to save changes to TPM_Config?')">
     {% for field in fields if field not in ['start_date', 'end_date'] %}
     <div>
       <label>{{ field }}:</label>
@@ -30,7 +30,18 @@
         <option value="CRITICAL" {% if values.get('log_level') == 'CRITICAL' %}selected{% endif %}>CRITICAL</option>
       </select>
       {% else %}
+      
+      {% if field.upper() == 'LOG_LEVEL' %}
+      <select name="{{ field }}">
+        <option value="DEBUG" {% if values.get(field) == 'DEBUG' %}selected{% endif %}>DEBUG</option>
+        <option value="INFO" {% if values.get(field) == 'INFO' %}selected{% endif %}>INFO</option>
+        <option value="WARNING" {% if values.get(field) == 'WARNING' %}selected{% endif %}>WARNING</option>
+        <option value="ERROR" {% if values.get(field) == 'ERROR' %}selected{% endif %}>ERROR</option>
+        <option value="CRITICAL" {% if values.get(field) == 'CRITICAL' %}selected{% endif %}>CRITICAL</option>
+      </select>
+      {% else %}
       <input type="text" name="{{ field }}" value="{{ values.get(field, '') }}">
+      {% endif %}
       {% endif %}
     </div>
     {% endfor %}
