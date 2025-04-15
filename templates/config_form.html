@@ -1,0 +1,31 @@
+
+<!doctype html>
+<html>
+<head>
+  <title>TPM Config Setup</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    h1 { margin-bottom: 1rem; }
+    form div { margin-bottom: 1rem; }
+    label { display: inline-block; width: 200px; font-weight: bold; }
+    input[type=text] { width: 400px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Populate TPM_Config Table</h1>
+  {% if message %}
+    <div class="{{ 'success' if success else 'error' }}">{{ message }}</div>
+  {% endif %}
+  <form method="POST">
+    {% for field in fields %}
+    <div>
+      <label>{{ field }}:</label>
+      <input type="text" name="{{ field }}" value="{{ values.get(field, '') }}">
+    </div>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
