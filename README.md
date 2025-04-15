@@ -1,57 +1,56 @@
 # TPMDBConfig
 
-This project contains the **database creation and configuration module** for the TPM data import system. It sets up the SQL Server database, creates required tables, and initializes logging.
+## Overview
+This module is responsible for setting up the SQL Server database and required tables for the TPM import process. It creates a configuration file (`configuration.ini`) for storing connection credentials and ensures the necessary SQL structure is in place.
 
 ---
 
-## 📁 Project Structure
+## `dbcreate.py`
 
-| File              | Description |
-|-------------------|-------------|
-| `dbcreate.py`     | Interactive script that verifies SQL Server, creates the database and tables, and sets logging config. |
-| `log.py`          | Modular logger that writes to `AppLog.log` and tags each message by module (e.g. DBCreate). |
-| `AppLog.log`      | Unified application log file. |
-| `requirements.txt`| Dependencies for the Python environment (`pyodbc`, `requests`, etc.). |
-| `setup.sh`        | Bootstraps the virtual environment and installs required packages. |
-| `run_import.sh`   | Shell wrapper for launching the future import module. |
+### Features
+- ✅ Prompts for server, database, and credentials if no config exists
+- ✅ Validates existing `configuration.ini` settings and skips setup if valid
+- ✅ Prompts the user to proceed if a valid configuration already exists
+- ✅ Supports `--force` to skip validation and re-run setup
+- ✅ Logs all activity to `AppLog.log` using the tag `DBCreate`
 
 ---
 
-## 🚀 Usage
+### Usage
 
-### 1. Setup Environment
-```bash
-./setup.sh
-```
-
-### 2. Create Database
+#### Run Setup Normally:
 ```bash
 python3 dbcreate.py -sql
 ```
 
-You will be prompted for:
-- SQL Server name
-- Database name
-- Username / password
+- If no config exists, it walks through setup.
+- If config exists and is valid, you'll be prompted:
+  ```
+  SQL setup appears complete. Do you still want to proceed with setup? (y/n):
+  ```
 
-The script will:
-- Verify server connectivity
-- Create the DB if it doesn't exist
-- Create required tables (`TPM_Config`, `tpm_items`)
-- Set log level to `DEBUG` by default
+#### Force Setup Regardless:
+```bash
+python3 dbcreate.py -sql --force
+```
 
----
-
-## 🧾 Logging
-
-- Logs are saved to `AppLog.log` in the same directory.
-- Tagged per module (e.g., `DBCreate | INFO`).
-- Logging level can be controlled via the `TPM_Config` table.
+- Skips validation, warns user, and runs setup fresh.
 
 ---
 
-## 🏁 Version
+### Logging
+All logs go to `AppLog.log` in the project root. They include timestamps and the source module:
+```
+[2025-04-15 14:25:34] DBCreate | INFO: Database verified or created.
+```
 
-**v1-dbsetup**  
-This version finalizes the database setup module and unified logging system.
+---
 
+### Files Generated
+- `configuration.ini`: stores verified SQL connection settings
+- `AppLog.log`: unified application log file
+
+---
+
+## Version
+Current: `v1.1-dbsetup`
