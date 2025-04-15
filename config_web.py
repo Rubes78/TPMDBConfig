@@ -22,8 +22,6 @@ def log_response_info(response):
 # Fields to be populated in TPM_Config
 CONFIG_FIELDS = [
     "api_url",
-    "start_date",
-    "end_date",
     "auth_token",
     "client_id",
     "log_level",
