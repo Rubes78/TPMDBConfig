@@ -1,51 +1,71 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>TPM Config Setup</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; }
-    h1 { margin-bottom: 1rem; }
-    form div { margin-bottom: 1rem; }
-    label { display: inline-block; width: 200px; font-weight: bold; }
-    input[type=text], select { width: 400px; }
-    .success { color: green; }
-    .error { color: red; }
-  </style>
+    <title>Edit TPM Configuration</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4; }
+        .container { max-width: 700px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+        h2 { text-align: center; }
+        .connection-info { margin-bottom: 15px; padding: 10px; background: #f0f8ff; border-radius: 5px; font-size: 14px; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 10px; text-align: left; vertical-align: top; }
+        th { background-color: #f0f0f0; }
+        .label { font-weight: bold; }
+        .value { color: #333; }
+        input[type="text"], select { width: 100%; padding: 6px; box-sizing: border-box; }
+        .submit-btn { margin-top: 20px; padding: 10px 20px; font-size: 16px; }
+        .message { margin-top: 15px; font-weight: bold; color: green; text-align: center; }
+    </style>
 </head>
 <body>
-  <h1>Populate TPM_Config Table</h1>
-  {% if message %}
-    <div class="{{ 'success' if success else 'error' }}">{{ message }}</div>
-  {% endif %}
-  <form method="POST" onsubmit="return confirm('Are you sure you want to save changes to TPM_Config?')">
-    {% for field in fields if field not in ['start_date', 'end_date'] %}
-    <div>
-      <label>{{ field }}:</label>
-      {% if field == 'log_level' %}
-      <select name="log_level">
-        <option value="DEBUG" {% if values.get('log_level') == 'DEBUG' %}selected{% endif %}>DEBUG</option>
-        <option value="INFO" {% if values.get('log_level') == 'INFO' %}selected{% endif %}>INFO</option>
-        <option value="WARNING" {% if values.get('log_level') == 'WARNING' %}selected{% endif %}>WARNING</option>
-        <option value="ERROR" {% if values.get('log_level') == 'ERROR' %}selected{% endif %}>ERROR</option>
-        <option value="CRITICAL" {% if values.get('log_level') == 'CRITICAL' %}selected{% endif %}>CRITICAL</option>
-      </select>
-      {% else %}
-      
-      {% if field.upper() == 'LOG_LEVEL' %}
-      <select name="{{ field }}">
-        <option value="DEBUG" {% if values.get(field) == 'DEBUG' %}selected{% endif %}>DEBUG</option>
-        <option value="INFO" {% if values.get(field) == 'INFO' %}selected{% endif %}>INFO</option>
-        <option value="WARNING" {% if values.get(field) == 'WARNING' %}selected{% endif %}>WARNING</option>
-        <option value="ERROR" {% if values.get(field) == 'ERROR' %}selected{% endif %}>ERROR</option>
-        <option value="CRITICAL" {% if values.get(field) == 'CRITICAL' %}selected{% endif %}>CRITICAL</option>
-      </select>
-      {% else %}
-      <input type="text" name="{{ field }}" value="{{ values.get(field, '') }}">
-      {% endif %}
-      {% endif %}
+    <div class="container">
+        <h2>Edit TPM Configuration</h2>
+
+        {% if sql_info %}
+        <div class="connection-info">
+            Connected to server: <strong>{{ sql_info.server }}</strong> |
+            database: <strong>{{ sql_info.database }}</strong>
+        </div>
+        {% endif %}
+
+        {% if values %}
+        <form method="post">
+            <table>
+                <tr>
+                    <th>Field</th>
+                    <th>Current Value</th>
+                    <th>New Value</th>
+                </tr>
+                {% for key, val in values.items() %}
+                <tr>
+                    <td class="label">{{ key }}</td>
+                    <td class="value">{{ val }}</td>
+                    <td>
+                        {% if key == 'LOG_LEVEL' %}
+                        <select name="{{ key }}">
+                            <option value="">Select...</option>
+                            {% for level in ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'] %}
+                                <option value="{{ level }}" {% if val == level %}selected{% endif %}>{{ level }}</option>
+                            {% endfor %}
+                        </select>
+                        {% else %}
+                        <input type="text" name="{{ key }}" value="{{ val }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div style="text-align: center;">
+                <input type="submit" value="Save Configuration" class="submit-btn">
+            </div>
+        </form>
+        {% else %}
+            <p>No configuration values found in the database.</p>
+        {% endif %}
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
     </div>
-    {% endfor %}
-    <button type="submit">Submit</button>
-  </form>
 </body>
 </html>

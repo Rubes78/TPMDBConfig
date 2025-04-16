@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TPM Configuration</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background-color: #f9f9f9; }
+        h2 { margin-bottom: 10px; }
+        form { background: #fff; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input, select { width: 100%; padding: 8px; margin-top: 5px; box-sizing: border-box; }
+        .message { margin-top: 15px; font-weight: bold; color: green; }
+    </style>
+</head>
+<body>
+    <h2>TPM Configuration Settings</h2>
+    <form method="post">
+        {% for field in fields %}
+            <label for="{{ field }}">{{ field }}</label>
+            {% if field == 'LOG_LEVEL' %}
+                <select name="{{ field }}">
+                    {% for level in ['DEBUG', 'INFO', 'WARNING', 'ERROR', 'CRITICAL'] %}
+                        <option value="{{ level }}" {% if values.get(field) == level %}selected{% endif %}>{{ level }}</option>
+                    {% endfor %}
+                </select>
+            {% else %}
+                <input type="text" name="{{ field }}" value="{{ values.get(field, '') }}">
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Save Configuration" style="margin-top: 20px;">
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+    </form>
+</body>
+</html>

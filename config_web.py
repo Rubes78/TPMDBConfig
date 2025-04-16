@@ -1,167 +1,125 @@
+from flask import Flask, request, render_template, redirect, make_response
 import os
-import sys
-import subprocess
-import time
-from flask import Flask, render_template, request
-
-def create_connection():
-    try:
-        import pyodbc
-        from log import log
-        import configparser
-        import os
-
-        config = configparser.ConfigParser()
-        ini_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "configuration.ini")
-        config.read(ini_path)
-
-        server = config.get("SQL", "server")
-        database = config.get("SQL", "database")
-        user = config.get("SQL", "username")
-        password = config.get("SQL", "password")
-
-        conn_str = (
-            f"DRIVER={{ODBC Driver 18 for SQL Server}};"
-            f"SERVER={server};DATABASE={database};UID={user};PWD={password};Encrypt=no;"
-        )
-        conn = pyodbc.connect(conn_str)
-        return conn
-
-    except Exception as e:
-        log(f"Error in create_connection: {e}")
-        raise
-
 import configparser
 import pyodbc
-from log import setup_logger, log
+from log import log
 
-setup_logger("WebConfig")
 app = Flask(__name__)
 
-@app.before_request
-def log_request_info():
-    log(f"Request: {request.method} {request.path}")
-
-@app.after_request
-def log_response_info(response):
-    log(f"Response: {response.status}")
-    return response
-
-# Fields to be populated in TPM_Config
 CONFIG_FIELDS = [
     "API_URL",
     "API_TOKEN",
+    "API_ID",
+    "API_USER",
     "COMP_ID",
     "LOG_LEVEL",
     "BASE_DIR"
 ]
+
+def create_connection():
+    config = configparser.ConfigParser()
+    config.read(os.path.join(os.path.dirname(os.path.abspath(__file__)), "configuration.ini"))
+
+    server = config.get("SQL", "server")
+    database = config.get("SQL", "database")
+    user = config.get("SQL", "username")
+    password = config.get("SQL", "password")
+
+    conn_str = (
+        f"DRIVER={{ODBC Driver 18 for SQL Server}};"
+        f"SERVER={server};DATABASE={database};UID={user};PWD={password};Encrypt=no;"
+    )
+    conn = pyodbc.connect(conn_str)
+    return conn, server, database
+
+def ensure_config_fields(conn):
+    cursor = conn.cursor()
+    existing_keys = set()
+    try:
+        cursor.execute("SELECT setting_key FROM TPM_Config")
+        existing_keys = {row.setting_key for row in cursor.fetchall()}
+    except Exception as e:
+        log(f"Could not fetch existing keys: {e}")
+
+    for field in CONFIG_FIELDS:
+        if field not in existing_keys:
+            log(f"Inserting missing config field: {field}")
+            cursor.execute("INSERT INTO TPM_Config (setting_key, setting_value) VALUES (?, '')", field)
+    conn.commit()
+    cursor.close()
+
+def load_config_values():
+    values = {}
+    try:
+        conn, _, _ = create_connection()
+        ensure_config_fields(conn)
+        cursor = conn.cursor()
+        cursor.execute("SELECT setting_key, setting_value FROM TPM_Config")
+        rows = cursor.fetchall()
+        values = {row.setting_key: row.setting_value for row in rows}
+        cursor.close()
+        conn.close()
+    except Exception as e:
+        log(f"Failed to load existing config: {e}")
+    return values
+
+@app.after_request
+def add_header(response):
+    response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+    response.headers["Pragma"] = "no-cache"
+    return response
+
 @app.route("/", methods=["GET", "POST"])
 def config_form():
-    values = {}
     message = ""
     success = True
+    values = load_config_values()
+
+    try:
+        conn, server, database = create_connection()
+        ensure_config_fields(conn)
+    except Exception as e:
+        return f"Database connection error: {e}", 500
 
     if request.method == "POST":
         try:
-            conn = create_connection()
             cursor = conn.cursor()
-            for key in CONFIG_FIELDS:
-                val = request.form.get(key, "")
-                values[key] = val
-                cursor.execute("""
-                    MERGE TPM_Config AS target
-                    USING (SELECT ? AS setting_key, ? AS setting_value) AS source
-                    ON target.setting_key = source.setting_key
-                    WHEN MATCHED THEN
-                        UPDATE SET setting_value = source.setting_value
-                    WHEN NOT MATCHED THEN
-                        INSERT (setting_key, setting_value)
-                        VALUES (source.setting_key, source.setting_value);
-                """, key, val)
+            for field in CONFIG_FIELDS:
+                value = request.form.get(field, "")
+                log(f"Processing field update: {field} = {value}")
+                cursor.execute(
+                    "UPDATE TPM_Config SET setting_value = ? WHERE setting_key = ?; "
+                    "IF @@ROWCOUNT = 0 INSERT INTO TPM_Config (setting_key, setting_value) VALUES (?, ?);",
+                    (value, field, field, value)
+                )
             conn.commit()
-            message = "Configuration saved successfully."
-            log("Configuration values updated via web interface.")
+            cursor.close()
+            log("Web config updated successfully.")
+            return redirect("/?saved=1")
         except Exception as e:
-            success = False
-            message = f"Error: {e}"
+            message = "Error: " + str(e)
             log(f"Web config update failed: {e}")
-        finally:
-            if 'conn' in locals():
-                conn.close()
-    else:
-        try:
-            conn = create_connection()
-            cursor = conn.cursor()
-            cursor.execute("SELECT setting_key, setting_value FROM TPM_Config")
-            rows = cursor.fetchall()
-            for row in rows:
-                values[row.setting_key] = row.setting_value
-        except Exception as e:
-            log(f"Failed to load existing config: {e}")
-            message = "Could not load current values."
             success = False
-        finally:
-            if 'conn' in locals():
-                conn.close()
 
-    return render_template("config_form.html", fields=CONFIG_FIELDS, values=values, message=message, success=success)
+    if request.args.get("saved") == "1":
+        message = "Configuration updated."
+        values = load_config_values()
+
+    log(f"Request: {request.method} /")
+    response = make_response(render_template("config_form.html", values=values, message=message, success=success, sql_info={"server": server, "database": database}))
+    log("Response: 200 OK")
+    return response
 
 if __name__ == "__main__":
-    if os.environ.get("FLASK_BACKGROUND") != "1":
-        script_path = os.path.abspath(sys.argv[0])
-        log(f"Launching config_web.py in background from: {script_path}")
-        try:
-            env = os.environ.copy()
-            env["FLASK_BACKGROUND"] = "1"
-            subprocess.Popen(
-                [sys.executable, script_path],
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                env=env,
-                close_fds=True
-            )
-            time.sleep(1)
-        except Exception as e:
-            log(f"Background launch failed: {e}")
+    log(f"Launching config_web.py in background from: {os.path.abspath(__file__)}")
+    import subprocess, sys
+    if "--background" not in sys.argv:
+        print("Go to http://127.0.0.1:5050/ for further configuration setup.")
+        subprocess.Popen(["python3", os.path.abspath(__file__), "--background"],
+                         stdout=subprocess.DEVNULL,
+                         stderr=subprocess.DEVNULL)
         sys.exit(0)
-    app.run(host='0.0.0.0', port=5050, debug=True)
-
-@app.route("/", methods=["GET", "POST"])
-def config_form():
-    conn = create_connection()
-    cursor = conn.cursor()
-
-    values = {}
-    message = ""
-    success = True
-
-    if request.method == "POST":
-        for field in CONFIG_FIELDS:
-            value = request.form.get(field, "")
-            cursor.execute("""
-                MERGE TPM_Config AS target
-                USING (SELECT ? AS FieldName, ? AS FieldValue) AS source
-                ON target.FieldName = source.FieldName
-                WHEN MATCHED THEN UPDATE SET FieldValue = source.FieldValue
-                WHEN NOT MATCHED THEN INSERT (FieldName, FieldValue) VALUES (source.FieldName, source.FieldValue);
-            """, (field, value))
-        conn.commit()
-        message = "Configuration updated."
-        success = True
     else:
-        try:
-            cursor.execute("SELECT FieldName, FieldValue FROM TPM_Config")
-            rows = cursor.fetchall()
-            values = {row.FieldName: row.FieldValue for row in rows}
-            log(f"Loaded {len(values)} config value(s) from TPM_Config")
-        except Exception as e:
-            log(f"Error loading config values: {e}")
-            message = "Unable to load existing values. Table may be missing or empty."
-            success = False
-        rows = cursor.fetchall()
-        values = {row.FieldName: row.FieldValue for row in rows}
-
-    cursor.close()
-    conn.close()
-
-    return render_template("config_form.html", fields=CONFIG_FIELDS, values=values, message=message, success=success)
+        log("Web config server starting silently in background")
+        log("Web config server now running on http://127.0.0.1:5050")
+        app.run(host="127.0.0.1", port=5050, debug=False)

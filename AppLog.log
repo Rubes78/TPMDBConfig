@@ -1,3 +1,303 @@
-[2025-04-15 08:31:15] DBCreate | INFO: Server 'holosql' is reachable on port 1433.
-[2025-04-15 08:31:24] DBCreate | INFO: Database 'sa' verified or created.
-[2025-04-15 08:31:24] DBCreate | INFO: Tables verified or created.
+[2025-04-16 07:40:59] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:40:59] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:40:59] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:40:59] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:41:25] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:41:25] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:41:25] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:41:25] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:41:28] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:41:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'C:\\TPM', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:41:29] config_web | INFO: Request: GET /
+[2025-04-16 07:41:29] config_web | INFO: Response: 200 OK
+[2025-04-16 07:41:46] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:41:46] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:41:46] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:41:46] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:41:46] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:41:46] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:41:46] config_web | INFO: Request: GET /
+[2025-04-16 07:41:46] config_web | INFO: Response: 200 OK
+[2025-04-16 07:41:51] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:41:51] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:41:51] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:41:51] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:41:51] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:41:51] config_web | INFO: Request: GET /
+[2025-04-16 07:41:51] config_web | INFO: Response: 200 OK
+[2025-04-16 07:42:03] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:03] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:03] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:42:03] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:03] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:03] config_web | INFO: Request: GET /
+[2025-04-16 07:42:03] config_web | INFO: Response: 200 OK
+[2025-04-16 07:42:04] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:04] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:04] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:42:04] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:04] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:04] config_web | INFO: Request: GET /
+[2025-04-16 07:42:04] config_web | INFO: Response: 200 OK
+[2025-04-16 07:42:10] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:10] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:10] config_web | INFO: Request: GET /
+[2025-04-16 07:42:10] config_web | INFO: Response: 200 OK
+[2025-04-16 07:42:31] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:42:31] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:42:31] config_web | INFO: Request: GET /
+[2025-04-16 07:42:31] config_web | INFO: Response: 200 OK
+[2025-04-16 07:44:44] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:44:44] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:44:44] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:44:44] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:44:48] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:44:48] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'INFO'}
+[2025-04-16 07:44:48] config_web | INFO: Request: GET /
+[2025-04-16 07:44:48] config_web | INFO: Response: 200 OK
+[2025-04-16 07:44:53] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:44:53] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:44:53] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': ''}
+[2025-04-16 07:44:53] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:44:53] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:44:53] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': ''}
+[2025-04-16 07:44:53] config_web | INFO: Request: GET /
+[2025-04-16 07:44:53] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:04] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:04] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': ''}
+[2025-04-16 07:45:04] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:04] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:04] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': ''}
+[2025-04-16 07:45:04] config_web | INFO: Request: GET /
+[2025-04-16 07:45:04] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:09] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:09] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:09] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'DEBUG'}
+[2025-04-16 07:45:09] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:09] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:09] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'DEBUG'}
+[2025-04-16 07:45:09] config_web | INFO: Request: GET /
+[2025-04-16 07:45:09] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:13] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:13] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:13] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'DEBUG'}
+[2025-04-16 07:45:13] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:13] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:13] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'DEBUG'}
+[2025-04-16 07:45:13] config_web | INFO: Request: GET /
+[2025-04-16 07:45:13] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:21] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:21] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:21] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:21] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:21] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:21] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstest', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:21] config_web | INFO: Request: GET /
+[2025-04-16 07:45:21] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:30] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:30] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:30] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:30] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:30] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:30] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:30] config_web | INFO: Request: GET /
+[2025-04-16 07:45:30] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:36] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:36] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:36] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:36] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:36] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:36] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:36] config_web | INFO: Request: GET /
+[2025-04-16 07:45:36] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:48] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:48] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'test', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:48] config_web | INFO: Request: GET /
+[2025-04-16 07:45:48] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:54] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:54] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:54] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:54] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:54] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:54] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'CRITICAL'}
+[2025-04-16 07:45:54] config_web | INFO: Request: GET /
+[2025-04-16 07:45:54] config_web | INFO: Response: 200 OK
+[2025-04-16 07:45:59] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:45:59] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:59] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:45:59] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:45:59] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:45:59] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:45:59] config_web | INFO: Request: GET /
+[2025-04-16 07:45:59] config_web | INFO: Response: 200 OK
+[2025-04-16 07:46:05] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:46:05] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:46:05] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:46:05] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:46:05] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:46:05] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:46:05] config_web | INFO: Request: GET /
+[2025-04-16 07:46:05] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:01] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:50:01] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:50:01] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:50:01] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:50:05] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:05] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:05] config_web | INFO: Request: GET /
+[2025-04-16 07:50:05] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:17] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:17] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:17] config_web | INFO: Request: GET /
+[2025-04-16 07:50:17] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:18] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:18] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:18] config_web | INFO: Request: GET /
+[2025-04-16 07:50:18] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:18] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:18] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:18] config_web | INFO: Request: GET /
+[2025-04-16 07:50:18] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:22] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:50:22] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:22] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:22] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:22] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:22] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:22] config_web | INFO: Request: GET /
+[2025-04-16 07:50:22] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:26] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:50:26] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:26] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:26] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:26] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:26] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:26] config_web | INFO: Request: GET /
+[2025-04-16 07:50:26] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:28] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:28] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:28] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:28] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:28] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:28] config_web | INFO: Request: GET /
+[2025-04-16 07:50:28] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: Request: GET /
+[2025-04-16 07:50:29] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: Request: GET /
+[2025-04-16 07:50:29] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: [INFO] Redirected after save — reloading updated values.
+[2025-04-16 07:50:29] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:29] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:29] config_web | INFO: Request: GET /
+[2025-04-16 07:50:29] config_web | INFO: Response: 200 OK
+[2025-04-16 07:50:38] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:50:39] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:50:39] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:50:39] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:50:44] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:50:44] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:50:44] config_web | INFO: Request: GET /
+[2025-04-16 07:50:44] config_web | INFO: Response: 200 OK
+[2025-04-16 07:53:02] config_web | INFO: [DEBUG] load_config_values() called
+[2025-04-16 07:53:02] config_web | INFO: Config values loaded: {'API_ID': '123456', 'API_TOKEN': 'test1234', 'API_URL': 'testt', 'API_USER': 'rcstestt', 'BASE_DIR': 'c:\\tpmtest', 'COMP_ID': '', 'LOG_LEVEL': 'ERROR'}
+[2025-04-16 07:53:02] config_web | INFO: Request: GET /
+[2025-04-16 07:53:02] config_web | INFO: Response: 200 OK
+[2025-04-16 07:53:16] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:53:16] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:53:16] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:53:16] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:53:20] config_web | INFO: Request: GET /
+[2025-04-16 07:53:20] config_web | INFO: Response: 200 OK
+[2025-04-16 07:54:25] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:54:25] config_web | INFO: Request: GET /
+[2025-04-16 07:54:25] config_web | INFO: Response: 200 OK
+[2025-04-16 07:54:29] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:54:29] config_web | INFO: Request: GET /
+[2025-04-16 07:54:29] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:11] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:57:11] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 07:57:11] config_web | INFO: Web config server starting silently in background
+[2025-04-16 07:57:11] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 07:57:15] config_web | INFO: Request: GET /
+[2025-04-16 07:57:15] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: API_URL = testt4
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: API_TOKEN = test1234
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: API_ID = 123456
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: API_USER = rcstestt
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: COMP_ID = 9999
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: LOG_LEVEL = ERROR
+[2025-04-16 07:57:19] config_web | INFO: Processing field update: BASE_DIR = c:\tpmtest
+[2025-04-16 07:57:20] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:57:20] config_web | INFO: Request: GET /
+[2025-04-16 07:57:20] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:30] config_web | INFO: Request: GET /
+[2025-04-16 07:57:30] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:33] config_web | INFO: Request: GET /
+[2025-04-16 07:57:33] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: API_URL = testt4
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: API_TOKEN = test1234
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: API_ID = 123456
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: API_USER = rcstestt
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: COMP_ID = 9999
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: LOG_LEVEL = DEBUG
+[2025-04-16 07:57:38] config_web | INFO: Processing field update: BASE_DIR = c:\tpmtest
+[2025-04-16 07:57:39] config_web | INFO: Web config updated successfully.
+[2025-04-16 07:57:39] config_web | INFO: Request: GET /
+[2025-04-16 07:57:39] config_web | INFO: Response: 200 OK
+[2025-04-16 07:57:43] config_web | INFO: Request: GET /
+[2025-04-16 07:57:43] config_web | INFO: Response: 200 OK
+[2025-04-16 07:58:40] config_web | INFO: Request: GET /
+[2025-04-16 07:58:40] config_web | INFO: Response: 200 OK
+[2025-04-16 07:58:47] config_web | INFO: Request: GET /
+[2025-04-16 07:58:47] config_web | INFO: Response: 200 OK
+[2025-04-16 08:03:25] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 08:03:25] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 08:03:25] config_web | INFO: Web config server starting silently in background
+[2025-04-16 08:03:25] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: API_URL
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: API_TOKEN
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: API_ID
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: API_USER
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: COMP_ID
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: LOG_LEVEL
+[2025-04-16 08:03:29] config_web | INFO: Inserting missing config field: BASE_DIR
+[2025-04-16 08:03:30] config_web | INFO: Request: GET /
+[2025-04-16 08:03:30] config_web | INFO: Response: 200 OK
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: API_URL = 
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: API_TOKEN = 
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: API_ID = 
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: API_USER = 
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: COMP_ID = 
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: LOG_LEVEL = DEBUG
+[2025-04-16 08:03:36] config_web | INFO: Processing field update: BASE_DIR = 
+[2025-04-16 08:03:36] config_web | INFO: Web config updated successfully.
+[2025-04-16 08:03:36] config_web | INFO: Request: GET /
+[2025-04-16 08:03:36] config_web | INFO: Response: 200 OK
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: API_URL = test
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: API_TOKEN = test
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: API_ID = test
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: API_USER = test
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: COMP_ID = test
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: LOG_LEVEL = DEBUG
+[2025-04-16 08:03:53] config_web | INFO: Processing field update: BASE_DIR = test
+[2025-04-16 08:03:54] config_web | INFO: Web config updated successfully.
+[2025-04-16 08:03:54] config_web | INFO: Request: GET /
+[2025-04-16 08:03:54] config_web | INFO: Response: 200 OK
+[2025-04-16 08:04:02] config_web | INFO: Request: GET /
+[2025-04-16 08:04:02] config_web | INFO: Response: 200 OK
+[2025-04-16 08:04:21] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 08:04:21] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
+[2025-04-16 08:04:21] config_web | INFO: Web config server starting silently in background
+[2025-04-16 08:04:21] config_web | INFO: Web config server now running on http://127.0.0.1:5050
