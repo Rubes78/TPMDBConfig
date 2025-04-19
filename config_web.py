@@ -3,6 +3,20 @@ import os
 import configparser
 import pyodbc
 from log import log
+import logging
+
+# Disable console logging only for config_web
+logger = logging.getLogger("config_web")
+for handler in logger.handlers[:]:
+    if isinstance(handler, logging.StreamHandler):
+        logger.removeHandler(handler)
+import logging
+
+# Disable console logging for this module only
+logger = logging.getLogger("config_web")
+for handler in logger.handlers:
+    if isinstance(handler, logging.StreamHandler):
+        logger.removeHandler(handler)
 
 
 def get_eth0_ip():
@@ -124,17 +138,36 @@ def config_form():
     return response
 
 if __name__ == "__main__":
-    log(f"Launching config_web.py in background from: {os.path.abspath(__file__)}")
-    import subprocess, sys
-    if "--background" not in sys.argv:
+    import sys
+    import subprocess
+    import os
+
+    if '--background' not in sys.argv:
         host_ip = get_eth0_ip()
-        print(f"Go to http://{host_ip}:5050/ for further configuration setup.")
-        subprocess.Popen(["python3", os.path.abspath(__file__), "--background"],
-                         stdout=subprocess.DEVNULL,
-                         stderr=subprocess.DEVNULL)
+        print(f"Go to http://{host_ip}:5050 for further configuration setup.")
+        subprocess.Popen([sys.executable, os.path.abspath(__file__), '--background'],
+                         stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         sys.exit(0)
     else:
-        log("Web config server starting silently in background")
         host_ip = get_eth0_ip()
-        log(f"Web config server now running on http://{host_ip}:5050")
-        app.run(host=host_ip, port=5050, debug=False)
+        try:
+            log("Checking for other config_web.py processes...")
+            current_pid = os.getpid()
+            result = subprocess.run(["pgrep", "-f", "config_web.py"], capture_output=True, text=True)
+            pids = [int(pid) for pid in result.stdout.split() if pid.strip().isdigit()]
+            other_pids = [pid for pid in pids if pid != current_pid]
+            for pid in other_pids:
+                os.kill(pid, 9)
+                log(f"Terminated existing config_web.py process: PID {pid}")
+            if not other_pids:
+                log("No other config_web.py processes found.")
+        except Exception as e:
+            log(f"Could not clean up config_web.py processes: {e}", level="warning")
+        log("Web config server starting silently in background")
+        try:
+            log(f"Launching Flask app on http://{host_ip}:5050")
+            sys.stdout = open(os.devnull, 'w')
+            sys.stderr = open(os.devnull, 'w')
+            app.run(host=host_ip, port=5050, debug=False)
+        except Exception as e:
+            log(f"Flask failed to start: {e}", level="error")
