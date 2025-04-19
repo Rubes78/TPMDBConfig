@@ -301,3 +301,71 @@
 [2025-04-16 08:04:21] config_web | INFO: Launching config_web.py in background from: /Users/rubes/GitHub/TPMDBConfig/config_web.py
 [2025-04-16 08:04:21] config_web | INFO: Web config server starting silently in background
 [2025-04-16 08:04:21] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-18 06:11:26] dbcreate | INFO: SQL setup mode...
+[2025-04-18 06:11:30] dbcreate | INFO: Server 'holosql' is reachable on port 1433.
+[2025-04-18 06:11:45] dbcreate | INFO: Database 'drtestbrandnew' verified or created.
+[2025-04-18 06:11:45] dbcreate | INFO: Configuration saved to configuration.ini
+[2025-04-18 06:11:48] dbcreate | INFO: Tables verified or created.
+[2025-04-18 06:12:14] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 06:12:15] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 06:12:15] config_web | INFO: Web config server starting silently in background
+[2025-04-18 06:12:15] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-18 10:28:01] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:28:02] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:28:02] config_web | INFO: Web config server starting silently in background
+[2025-04-18 10:28:02] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-18 10:36:33] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:36:33] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:36:33] config_web | INFO: Web config server starting silently in background
+[2025-04-18 10:36:33] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-18 10:36:33] config_web | INFO: Web config server now running on http://192.168.1.215:5050
+[2025-04-18 10:41:07] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:41:08] config_web | INFO: Launching config_web.py in background from: /Quarks/GitHub/DBConfig/config_web.py
+[2025-04-18 10:41:08] config_web | INFO: Web config server starting silently in background
+[2025-04-18 10:41:08] config_web | INFO: Web config server now running on http://127.0.0.1:5050
+[2025-04-18 10:41:08] config_web | INFO: Web config server now running on http://192.168.1.215:5050
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: API_URL
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: API_TOKEN
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: API_ID
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: API_USER
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: COMP_ID
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: LOG_LEVEL
+[2025-04-18 10:41:18] config_web | INFO: Inserting missing config field: BASE_DIR
+[2025-04-18 10:41:19] config_web | INFO: Request: GET /
+[2025-04-18 10:41:19] config_web | INFO: Response: 200 OK
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: API_URL = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: API_TOKEN = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: API_ID = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: API_USER = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: COMP_ID = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: LOG_LEVEL = 
+[2025-04-18 10:41:25] config_web | INFO: Processing field update: BASE_DIR = 
+[2025-04-18 10:41:25] config_web | INFO: Web config updated successfully.
+[2025-04-18 10:41:25] config_web | INFO: Request: GET /
+[2025-04-18 10:41:25] config_web | INFO: Response: 200 OK
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: API_URL = 
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: API_TOKEN = 
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: API_ID = 123456
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: API_USER = 
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: COMP_ID = 
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: LOG_LEVEL = 
+[2025-04-18 10:41:30] config_web | INFO: Processing field update: BASE_DIR = 
+[2025-04-18 10:41:31] config_web | INFO: Web config updated successfully.
+[2025-04-18 10:41:31] config_web | INFO: Request: GET /
+[2025-04-18 10:41:31] config_web | INFO: Response: 200 OK
+[2025-04-18 10:41:33] config_web | INFO: Request: GET /
+[2025-04-18 10:41:33] config_web | INFO: Response: 200 OK
+[2025-04-19 06:23:16] config_web | INFO: Request: GET /
+[2025-04-19 06:23:16] config_web | INFO: Response: 200 OK
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: API_URL = 
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: API_TOKEN = 
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: API_ID = 123456
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: API_USER = 
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: COMP_ID = 
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: LOG_LEVEL = DEBUG
+[2025-04-19 06:23:23] config_web | INFO: Processing field update: BASE_DIR = 
+[2025-04-19 06:23:23] config_web | INFO: Web config updated successfully.
+[2025-04-19 06:23:23] config_web | INFO: Request: GET /
+[2025-04-19 06:23:23] config_web | INFO: Response: 200 OK
+[2025-04-19 06:23:32] config_web | INFO: Request: GET /
+[2025-04-19 06:23:32] config_web | INFO: Response: 200 OK

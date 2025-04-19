@@ -4,6 +4,19 @@ import configparser
 import pyodbc
 from log import log
 
+
+def get_eth0_ip():
+    import socket
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except Exception as e:
+        log(f"Failed to detect eth0 IP: {e}")
+        return "127.0.0.1"
+
 app = Flask(__name__)
 
 CONFIG_FIELDS = [
@@ -118,8 +131,23 @@ if __name__ == "__main__":
         subprocess.Popen(["python3", os.path.abspath(__file__), "--background"],
                          stdout=subprocess.DEVNULL,
                          stderr=subprocess.DEVNULL)
+        host_ip = get_eth0_ip()
         sys.exit(0)
     else:
         log("Web config server starting silently in background")
         log("Web config server now running on http://127.0.0.1:5050")
-        app.run(host="127.0.0.1", port=5050, debug=False)
+        import socket
+def get_eth0_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(("8.8.8.8", 80))
+        ip = s.getsockname()[0]
+        s.close()
+        return ip
+    except Exception as e:
+        log(f"Failed to detect eth0 IP: {e}")
+        return "127.0.0.1"
+
+host_ip = get_eth0_ip()
+log(f"Web config server now running on http://{host_ip}:5050")
+app.run(host=host_ip, port=5050, debug=False)

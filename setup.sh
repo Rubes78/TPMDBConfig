@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Installing TPM Python environment..."
+echo "Installing Python environment..."
 
 cd "$(dirname "$0")" || exit
 
@@ -20,5 +20,5 @@ echo ""
 echo "✅ Setup complete!"
 echo "To run your import:"
 echo "    source venv/bin/activate"
-echo "    python import.py"
+echo "    python dbcreate.py"
 echo ""
