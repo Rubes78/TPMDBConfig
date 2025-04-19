@@ -36,10 +36,9 @@ app = Flask(__name__)
 
 CONFIG_FIELDS = [
     "API_URL",
-    "API_TOKEN",
-    "API_ID",
-    "API_USER",
-    "COMP_ID",
+    "userName",
+    "password",
+    "companyID",
     "LOG_LEVEL",
     "BASE_DIR"
 ]
