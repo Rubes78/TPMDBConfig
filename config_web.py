@@ -127,27 +127,14 @@ if __name__ == "__main__":
     log(f"Launching config_web.py in background from: {os.path.abspath(__file__)}")
     import subprocess, sys
     if "--background" not in sys.argv:
-        print("Go to http://127.0.0.1:5050/ for further configuration setup.")
+        host_ip = get_eth0_ip()
+        print(f"Go to http://{host_ip}:5050/ for further configuration setup.")
         subprocess.Popen(["python3", os.path.abspath(__file__), "--background"],
                          stdout=subprocess.DEVNULL,
                          stderr=subprocess.DEVNULL)
-        host_ip = get_eth0_ip()
         sys.exit(0)
     else:
         log("Web config server starting silently in background")
-        log("Web config server now running on http://127.0.0.1:5050")
-        import socket
-def get_eth0_ip():
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8", 80))
-        ip = s.getsockname()[0]
-        s.close()
-        return ip
-    except Exception as e:
-        log(f"Failed to detect eth0 IP: {e}")
-        return "127.0.0.1"
-
-host_ip = get_eth0_ip()
-log(f"Web config server now running on http://{host_ip}:5050")
-app.run(host=host_ip, port=5050, debug=False)
+        host_ip = get_eth0_ip()
+        log(f"Web config server now running on http://{host_ip}:5050")
+        app.run(host=host_ip, port=5050, debug=False)
