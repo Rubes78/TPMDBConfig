@@ -4,6 +4,7 @@ import configparser
 import pyodbc
 from log import log
 import logging
+import time
 
 # Disable console logging only for config_web
 logger = logging.getLogger("config_web")
@@ -137,6 +138,7 @@ def config_form():
     log("Response: 200 OK")
     return response
 
+
 if __name__ == "__main__":
     import sys
     import subprocess
@@ -148,26 +150,31 @@ if __name__ == "__main__":
         subprocess.Popen([sys.executable, os.path.abspath(__file__), '--background'],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         sys.exit(0)
-    else:
-        host_ip = get_eth0_ip()
-        try:
-            log("Checking for other config_web.py processes...")
-            current_pid = os.getpid()
-            result = subprocess.run(["pgrep", "-f", "config_web.py"], capture_output=True, text=True)
-            pids = [int(pid) for pid in result.stdout.split() if pid.strip().isdigit()]
-            other_pids = [pid for pid in pids if pid != current_pid]
-            for pid in other_pids:
-                os.kill(pid, 9)
-                log(f"Terminated existing config_web.py process: PID {pid}")
-            if not other_pids:
-                log("No other config_web.py processes found.")
-        except Exception as e:
-            log(f"Could not clean up config_web.py processes: {e}", level="warning")
-        log("Web config server starting silently in background")
-        try:
-            log(f"Launching Flask app on http://{host_ip}:5050")
-            sys.stdout = open(os.devnull, 'w')
-            sys.stderr = open(os.devnull, 'w')
-            app.run(host=host_ip, port=5050, debug=False)
-        except Exception as e:
-            log(f"Flask failed to start: {e}", level="error")
+
+    host_ip = get_eth0_ip()
+    try:
+        log("Checking for other config_web.py processes...")
+        current_pid = os.getpid()
+        result = subprocess.run(["pgrep", "-f", "config_web.py"], capture_output=True, text=True)
+        pids = [int(pid) for pid in result.stdout.split() if pid.strip().isdigit()]
+        other_pids = [pid for pid in pids if pid != current_pid]
+        for pid in other_pids:
+            os.kill(pid, 9)
+            log(f"Terminated existing config_web.py process: PID {pid}")
+        if other_pids:
+            log("Waiting briefly for port to free...")
+            import time
+            time.sleep(1)
+        else:
+            log("No other config_web.py processes found.")
+    except Exception as e:
+        log(f"Could not clean up config_web.py processes: {e}", level="warning")
+
+    log("Web config server starting silently in background")
+    try:
+        log(f"Launching Flask app on http://{host_ip}:5050")
+        sys.stdout = open(os.devnull, 'w')
+        sys.stderr = open(os.devnull, 'w')
+        app.run(host=host_ip, port=5050, debug=False)
+    except Exception as e:
+        log(f"Flask failed to start: {e}", level="error")
