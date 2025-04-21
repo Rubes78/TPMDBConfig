@@ -1,6 +1,7 @@
 import os
 import configparser
 import pyodbc
+import subprocess
 from log import log
 
 def test_sql_connection(conn_str):
@@ -48,6 +49,13 @@ def save_sqlconn_to_creds_ini(conn_str):
 if __name__ == "__main__":
     log("Startup check...")
 
+    if not os.path.exists("configuration.ini"):
+        log("configuration.ini not found. Launching dbcreate.py...")
+        result = subprocess.run(["python3", "dbcreate.py"])
+        if result.returncode != 0:
+            log("dbcreate.py failed or was aborted. Exiting.", level="error")
+            exit(1)
+
     config = configparser.ConfigParser()
     config.read("configuration.ini")
 
@@ -77,7 +85,6 @@ if __name__ == "__main__":
         log("Initial connection failed. Skipping creds.ini write.")
         exit(1)
 
-    # Re-verify connection string
     log("Verifying saved connection string from creds.ini...")
     verify_config = configparser.ConfigParser()
     verify_config.read("creds.ini")
@@ -95,7 +102,6 @@ if __name__ == "__main__":
         log("Failed to connect using creds.ini")
         exit(1)
 
-    # Force table check always
     log("Now performing required table check...")
     required_tables = ["TPM_Config", "TPM_Items"]
     check_required_tables(saved_conn_str, required_tables)
